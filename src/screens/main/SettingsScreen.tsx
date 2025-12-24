@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Switch } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useAuth } from '@/contexts/AuthContext';
+import { useTheme } from '../../contexts/ThemeContext';
+import { useAuth } from '../../contexts/AuthContext';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '@/store';
-import { setTheme } from '@/store/slices/appSlice';
+import { RootState } from '../../store';
+import { setTheme } from '../../store/slices/appSlice';
 
 const SettingsScreen: React.FC = () => {
   const { theme, themeMode, setThemeMode } = useTheme();

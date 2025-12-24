@@ -1,12 +1,12 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/store';
-import { useAuth } from '@/contexts/AuthContext';
+import { RootState } from '../store';
+import { useAuth } from '../contexts/AuthContext';
 
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
-import LoadingScreen from '@/screens/LoadingScreen';
+import LoadingScreen from '../screens/LoadingScreen';
 
 const Stack = createStackNavigator();
 

@@ -4,31 +4,31 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const lightTheme = {
   colors: {
-    primary: '#007AFF',
-    secondary: '#5856D6',
+    primary: '#1E3A8A', // Dark blue
+    secondary: '#3B82F6',
     background: '#FFFFFF',
-    surface: '#F2F2F7',
-    text: '#000000',
-    textSecondary: '#8E8E93',
-    border: '#C6C6C8',
-    error: '#FF3B30',
-    success: '#34C759',
-    warning: '#FF9500',
+    surface: '#F8FAFC',
+    text: '#1E293B',
+    textSecondary: '#64748B',
+    border: '#E2E8F0',
+    error: '#EF4444',
+    success: '#10B981',
+    warning: '#F59E0B',
   },
 };
 
 export const darkTheme = {
   colors: {
-    primary: '#0A84FF',
-    secondary: '#5E5CE6',
-    background: '#000000',
-    surface: '#1C1C1E',
-    text: '#FFFFFF',
-    textSecondary: '#8E8E93',
-    border: '#38383A',
-    error: '#FF453A',
-    success: '#30D158',
-    warning: '#FF9F0A',
+    primary: '#3B82F6',
+    secondary: '#1E3A8A',
+    background: '#0F172A',
+    surface: '#1E293B',
+    text: '#F8FAFC',
+    textSecondary: '#94A3B8',
+    border: '#334155',
+    error: '#F87171',
+    success: '#34D399',
+    warning: '#FBBF24',
   },
 };
 
@@ -80,7 +80,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   };
 
-  const isDark = themeMode === 'dark' || (themeMode === 'auto' && systemColorScheme === 'dark');
+  const isDark = false; // Force light theme for AP Cram
   const theme = isDark ? darkTheme : lightTheme;
 
   const value: ThemeContextType = {

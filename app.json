@@ -1,22 +1,22 @@
 {
   "expo": {
-    "name": "T-sang AP Cram",
-    "slug": "t-sang-ap-cram",
+    "name": "AP Cram",
+    "slug": "ap-cram",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1E3A8A"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.tsang.apcram",
+      "bundleIdentifier": "com.apcram.app",
       "buildNumber": "1.0.0",
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses camera to scan documents and take photos",
@@ -28,9 +28,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#1E3A8A"
       },
-      "package": "com.tsang.apcram",
+      "package": "com.apcram.app",
       "versionCode": 1,
       "permissions": [
         "CAMERA",

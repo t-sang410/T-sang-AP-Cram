@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useTheme } from '@/contexts/ThemeContext';
-import { AuthStackParamList } from '@/navigation/AuthNavigator';
-import Button from '@/components/common/Button';
+import { useTheme } from '../../contexts/ThemeContext';
+import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import Button from '../../components/common/Button';
 
 type OnboardingScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Onboarding'>;
 
@@ -17,28 +17,33 @@ const OnboardingScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <View style={styles.content}>
-        <Text style={[styles.title, { color: theme.colors.text }]}>
-          Welcome to T-sang AP Cram
-        </Text>
-        <Text style={[styles.subtitle, { color: theme.colors.textSecondary }]}>
-          Your ultimate study companion for AP exams
-        </Text>
+        <View style={styles.logoContainer}>
+          <View style={[styles.catIcon, { backgroundColor: theme.colors.primary }]}>
+            <Text style={styles.catEmoji}>🐱</Text>
+          </View>
+          <Text style={[styles.title, { color: theme.colors.text }]}>
+            AP Cram
+          </Text>
+          <Text style={[styles.subtitle, { color: theme.colors.textSecondary }]}>
+            The free, fun, and effective way to master AP courses!
+          </Text>
+        </View>
       </View>
 
       <View style={styles.buttons}>
         <Button
           title="Get Started"
           onPress={() => navigation.navigate('Register')}
-          style={styles.button}
+          style={[styles.primaryButton, { backgroundColor: theme.colors.primary }]}
+          textStyle={{ color: '#FFFFFF' }}
         />
-        <TouchableOpacity
-          style={styles.loginLink}
+        <Button
+          title="I already have an account"
           onPress={() => navigation.navigate('Login')}
-        >
-          <Text style={[styles.loginText, { color: theme.colors.primary }]}>
-            Already have an account? Sign In
-          </Text>
-        </TouchableOpacity>
+          variant="outline"
+          style={[styles.secondaryButton, { borderColor: theme.colors.primary, backgroundColor: '#FFFFFF' }]}
+          textStyle={{ color: theme.colors.primary }}
+        />
       </View>
     </View>
   );
@@ -54,28 +59,40 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  logoContainer: {
+    alignItems: 'center',
+  },
+  catIcon: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  catEmoji: {
+    fontSize: 60,
+  },
   title: {
-    fontSize: 32,
+    fontSize: 36,
     fontWeight: 'bold',
-    textAlign: 'center',
     marginBottom: 16,
   },
   subtitle: {
     fontSize: 18,
     textAlign: 'center',
     lineHeight: 24,
+    paddingHorizontal: 20,
   },
   buttons: {
     paddingBottom: 40,
+    gap: 12,
   },
-  button: {
-    marginBottom: 16,
+  primaryButton: {
+    marginBottom: 0,
   },
-  loginLink: {
-    alignItems: 'center',
-  },
-  loginText: {
-    fontSize: 16,
+  secondaryButton: {
+    borderWidth: 2,
   },
 });
 

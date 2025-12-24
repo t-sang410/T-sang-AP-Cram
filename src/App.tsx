@@ -6,11 +6,11 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 
-import { store } from '@/store';
-import { AuthProvider } from '@/contexts/AuthContext';
-import { ThemeProvider } from '@/contexts/ThemeContext';
-import AppNavigator from '@/navigation/AppNavigator';
-import { toastConfig } from '@/utils/toastConfig';
+import { store } from './store';
+import { AuthProvider } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
+import AppNavigator from './navigation/AppNavigator';
+import { toastConfig } from './utils/toastConfig';
 
 export default function App() {
   return (

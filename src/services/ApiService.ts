@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { store } from '@/store';
-import { logout } from '@/store/slices/authSlice';
+import { store } from '../store';
+import { logout } from '../store/slices/authSlice';
 
 class ApiServiceClass {
   private api: AxiosInstance;

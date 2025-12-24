@@ -13,12 +13,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Toast from 'react-native-toast-message';
 
-import { useTheme } from '@/contexts/ThemeContext';
-import { useAuth } from '@/contexts/AuthContext';
-import { AuthStackParamList } from '@/navigation/AuthNavigator';
-import { loginSchema } from '@/utils/validation';
-import Button from '@/components/common/Button';
-import Input from '@/components/common/Input';
+import { useTheme } from '../../contexts/ThemeContext';
+import { useAuth } from '../../contexts/AuthContext';
+import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { loginSchema } from '../../utils/validation';
+import Button from '../../components/common/Button';
+import Input from '../../components/common/Input';
 
 type LoginScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Login'>;
 
@@ -55,6 +55,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
           text2: 'Invalid email or password',
         });
       }
+      // Navigation will be handled by AppNavigator based on auth state
     } catch (error) {
       Toast.show({
         type: 'error',

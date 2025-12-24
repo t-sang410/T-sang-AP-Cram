@@ -5,12 +5,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Toast from 'react-native-toast-message';
 
-import { useTheme } from '@/contexts/ThemeContext';
-import { useAuth } from '@/contexts/AuthContext';
-import { AuthStackParamList } from '@/navigation/AuthNavigator';
-import { forgotPasswordSchema } from '@/utils/validation';
-import Button from '@/components/common/Button';
-import Input from '@/components/common/Input';
+import { useTheme } from '../../contexts/ThemeContext';
+import { useAuth } from '../../contexts/AuthContext';
+import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { forgotPasswordSchema } from '../../utils/validation';
+import Button from '../../components/common/Button';
+import Input from '../../components/common/Input';
 
 type ForgotPasswordScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'ForgotPassword'>;
 

@@ -13,12 +13,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Toast from 'react-native-toast-message';
 
-import { useTheme } from '@/contexts/ThemeContext';
-import { useAuth } from '@/contexts/AuthContext';
-import { AuthStackParamList } from '@/navigation/AuthNavigator';
-import { registerSchema } from '@/utils/validation';
-import Button from '@/components/common/Button';
-import Input from '@/components/common/Input';
+import { useTheme } from '../../contexts/ThemeContext';
+import { useAuth } from '../../contexts/AuthContext';
+import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { registerSchema } from '../../utils/validation';
+import Button from '../../components/common/Button';
+import Input from '../../components/common/Input';
 
 type RegisterScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Register'>;
 
@@ -54,9 +54,9 @@ const RegisterScreen: React.FC<Props> = ({ navigation }) => {
         Toast.show({
           type: 'success',
           text1: 'Registration Successful',
-          text2: 'Please check your email to verify your account',
+          text2: 'Welcome to AP Cram!',
         });
-        navigation.navigate('Login');
+        navigation.navigate('CourseSelection');
       } else {
         Toast.show({
           type: 'error',

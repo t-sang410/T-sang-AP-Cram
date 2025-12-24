@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch } from 'react-redux';
-import { loginSuccess, logout } from '@/store/slices/authSlice';
-import { AuthService } from '@/services/AuthService';
+import { loginSuccess, logout } from '../store/slices/authSlice';
+import { AuthService } from '../services/AuthService';
 
 interface AuthContextType {
   login: (email: string, password: string) => Promise<boolean>;

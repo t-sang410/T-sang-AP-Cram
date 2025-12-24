@@ -2,32 +2,32 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '../contexts/ThemeContext';
+import * as Haptics from 'expo-haptics';
 
-import HomeScreen from '@/screens/main/HomeScreen';
-import ProfileScreen from '@/screens/main/ProfileScreen';
-import SettingsScreen from '@/screens/main/SettingsScreen';
-import NotificationsScreen from '@/screens/main/NotificationsScreen';
+import HomeScreen from '../screens/main/HomeScreen';
+import QuestsScreen from '../screens/main/QuestsScreen';
+import CatScreen from '../screens/main/CatScreen';
+import SocialScreen from '../screens/main/SocialScreen';
+import SettingsScreen from '../screens/main/SettingsScreen';
 
 export type MainTabParamList = {
   Home: undefined;
-  Profile: undefined;
-  Notifications: undefined;
+  Quests: undefined;
+  Cat: undefined;
+  Social: undefined;
   Settings: undefined;
 };
 
-export type MainStackParamList = {
-  MainTabs: undefined;
-  Details: { id: string };
-  Camera: undefined;
-  Map: undefined;
-};
-
 const Tab = createBottomTabNavigator<MainTabParamList>();
-const Stack = createStackNavigator<MainStackParamList>();
+const Stack = createStackNavigator();
 
 const MainTabs: React.FC = () => {
   const { theme } = useTheme();
+
+  const handleTabPress = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  };
 
   return (
     <Tab.Navigator
@@ -39,11 +39,14 @@ const MainTabs: React.FC = () => {
             case 'Home':
               iconName = focused ? 'home' : 'home-outline';
               break;
-            case 'Profile':
-              iconName = focused ? 'person' : 'person-outline';
+            case 'Quests':
+              iconName = focused ? 'trophy' : 'trophy-outline';
               break;
-            case 'Notifications':
-              iconName = focused ? 'notifications' : 'notifications-outline';
+            case 'Cat':
+              iconName = focused ? 'paw' : 'paw-outline';
+              break;
+            case 'Social':
+              iconName = focused ? 'people' : 'people-outline';
               break;
             case 'Settings':
               iconName = focused ? 'settings' : 'settings-outline';
@@ -57,18 +60,25 @@ const MainTabs: React.FC = () => {
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.textSecondary,
         tabBarStyle: {
-          backgroundColor: theme.colors.surface,
-          borderTopColor: theme.colors.border,
-        },
-        headerStyle: {
           backgroundColor: theme.colors.background,
+          borderTopColor: theme.colors.border,
+          paddingBottom: 8,
+          height: 60,
         },
-        headerTintColor: theme.colors.text,
+        headerShown: false,
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '500',
+        },
       })}
+      screenListeners={{
+        tabPress: handleTabPress,
+      }}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="Notifications" component={NotificationsScreen} />
+      <Tab.Screen name="Quests" component={QuestsScreen} />
+      <Tab.Screen name="Cat" component={CatScreen} />
+      <Tab.Screen name="Social" component={SocialScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
